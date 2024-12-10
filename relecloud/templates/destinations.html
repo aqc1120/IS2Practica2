@@ -9,11 +9,43 @@ ReleCloud - Destinations
 <p>
 If you can imagine it, we travel to it! Below is our list of confirmed destinations.
 </p>
+
+<h2>Top Destinations</h2>
 <ul class="list-group">
-    {% for destination in destinations %}
+    {% for destination in top_destinations %}
     <a class="list-group-item list-group-item-action" href="{% url 'destination_detail' destination.id %}">
         {{ destination }}
     </a>
     {% endfor %}
 </ul>
+
+<div id="other-destinations" style="display: none;">
+    <h2>Other Destinations</h2>
+    <ul class="list-group">
+        {% for destination in other_destinations %}
+        <a class="list-group-item list-group-item-action" href="{% url 'destination_detail' destination.id %}">
+            {{ destination }}
+        </a>
+        {% endfor %}
+    </ul>
+</div>
+
+<h1></h1>
+<button id="expand-button" class="btn btn-primary">Show all destinations</button>
+
+<script>
+    // JavaScript para alternar la visibilidad de los destinos
+    const expandButton = document.getElementById('expand-button');
+    const otherDestinations = document.getElementById('other-destinations');
+
+    expandButton.addEventListener('click', function () {
+        if (otherDestinations.style.display === 'none') {
+            otherDestinations.style.display = 'block';
+            expandButton.textContent = 'Show fewer destinations';
+        } else {
+            otherDestinations.style.display = 'none';
+            expandButton.textContent = 'Show all destinations';
+        }
+    });
+</script>
 {% endblock content %}
