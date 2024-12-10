@@ -1,0 +1,6 @@
+{
+    "appService.showBuildDuringDeployPrompt": false,
+    "appService.deploySubpath": ".",
+    "python.pythonPath": ".venv/bin/python",
+    "appService.defaultWebAppToDeploy": "/subscriptions/39d1e71f-ca74-4d22-ac8b-6f36d920cb6b/resourceGroups/recursos-space-tours_group/providers/Microsoft.Web/sites/recursos-space-tours"
+}
