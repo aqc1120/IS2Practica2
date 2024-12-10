@@ -12,8 +12,19 @@ def about(request):
     return render(request, 'about.html')
 
 def destinations(request):
-    all_destinations = models.Destination.objects.all()
-    return render(request, 'destinations.html', { 'destinations': all_destinations})
+    # Ordena los destinos según la popularidad
+    all_destinations = models.Destination.objects.all().order_by('-popularity')  # Asegúrate de tener el campo `popularity`
+    
+    # Toma los tres primeros destinos más populares
+    top_destinations = all_destinations[:3]
+
+    # El resto de los destinos
+    other_destinations = all_destinations[3:]
+
+    return render(request, 'destinations.html', {
+        'top_destinations': top_destinations,
+        'other_destinations': other_destinations,
+    })
 
 class DestinationDetailView(generic.DetailView):
     template_name = 'destination_detail.html'
