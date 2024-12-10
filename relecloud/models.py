@@ -13,7 +13,9 @@ class Destination(models.Model):
         max_length=2000,
         null=False,
         blank=False
-    )
+    ),
+    popularity = models.IntegerField(default=0)  # Campo para indicar la popularidad
+    
     def __str__(self):
         return self.name
     
