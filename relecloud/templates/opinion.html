@@ -7,7 +7,11 @@ Opiniones sobre Cruceros - ReleCloud
 
 {% block content %}
 
-
+       <!-- Mostrar opiniones existentes -->
+       <h2>Opiniones sobre Cruceros</h2>
+       {% for opinion in opinions %}
+           <p>{{ opinion.name }} dice: {{ opinion.opinion }} y pone una valoración de: {{opinion.valoración}}</p>
+       {% endfor %}
     <!-- Formulario para agregar nuevas opiniones -->
     <h2>Añadir nueva opinión</h2>
     <form method="post" action="{% url 'opinion' %}">
