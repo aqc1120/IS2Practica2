@@ -57,3 +57,10 @@ class InfoRequest(models.Model):
         Cruise,
         on_delete=models.PROTECT
     )
+    class Opinion(models.Model):
+        name = models.CharField(max_length=100)
+        cruise = models.CharField(max_length=100)
+        opinion = models.TextField()
+        valoracion = models.IntegerField()
+    def __str__(self):
+        return f"{self.name} - {self.cruise}"
