@@ -9,9 +9,11 @@ Opiniones sobre Cruceros - ReleCloud
 
        <!-- Mostrar opiniones existentes -->
        <h2>Opiniones sobre Cruceros</h2>
-       {% for opinion in opinions %}
-       <p><strong>{{ opinion.name }} </strong> dice sobre el crucero <strong>{{ opinion.cruise }}</strong>:</p>
-       <p>{{ opinion.opinion|safe }} valoración: {{opinion.valoración}}</p>
+        <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+                {% for opinion in opinions %}
+                <p><strong>{{ opinion.name }} </strong> dice sobre el crucero <strong>{{ opinion.cruise }}</strong>:</p>
+                <p>{{ opinion.opinion|safe }} valoración: {{opinion.valoración}}</p>
+            </div> 
        {% endfor %}
     <!-- Formulario para agregar nuevas opiniones -->
     <h2>Añadir nueva opinión</h2>
