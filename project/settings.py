@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-jkr^6+fagq8m(9&n9h3&ck7+q*l4$epw9p-t#u3wk_mdw@awmz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['jb-space-tours.azurewebsites.net','127.0.0.1']
 

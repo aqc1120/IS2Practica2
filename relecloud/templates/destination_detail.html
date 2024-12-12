@@ -2,6 +2,20 @@
 
 {% load static %}
 
+{% block image %}
+    {% comment %} dependiendo del destino se muestra una foto {% endcomment %}
+    {% if destination.name == 'Mars' %}
+        <img class="mr-3 img-fluid" src="{% static 'res/img/marte.jpeg' %}" alt="Marte" />
+    {% elif destination.name == 'Saturn' %}
+        <img class="mr-3 img-fluid" src="{% static 'res/img/saturno.jpg' %}" alt="Saturno" />
+    {% elif destination.name == 'Venus' %}
+        <img class="mr-3 img-fluid" src="{% static 'res/img/venus.jpeg' %}" alt="Venus" />
+    {% comment %} si el destino no está registrado muestra el {% endcomment %}
+    {% else %}
+        <img class="mr-3 img-fluid" src="{% static 'res/img/astronaut.jpeg' %}" alt="Astronaut looking into space" />
+    {% endif %}
+{% endblock %}
+
 {% block title %}
 ReleCloud - {{ destination }}
 {% endblock %}
