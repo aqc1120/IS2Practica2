@@ -89,7 +89,7 @@ class InfoRequestCreate(SuccessMessageMixin, generic.CreateView):
         send_mail(
             subject='Info Request Received',
             message=f"Hello {info_request.name},\n\nWe have received your request for more information about the cruise '{info_request.cruise}'. We will get back to you soon!\n\nThank you for reaching out!",
-            from_email='your_email@example.com',  # Cambia por tu correo configurado
+            from_email='spaceiswii@gmail.com',  # Cambia por tu correo configurado
             recipient_list=[info_request.email],  # Correo del usuario
         )
         
