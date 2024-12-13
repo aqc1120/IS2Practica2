@@ -5,6 +5,7 @@ from django.views import generic
 from django.contrib.messages.views import SuccessMessageMixin
 from .models import Opinion, Cruise
 from .forms import OpinionForm
+from django.core.mail import send_mail
 
 # Create your views here.
 def index(request):
@@ -77,3 +78,19 @@ class InfoRequestCreate(SuccessMessageMixin, generic.CreateView):
     fields = ['name', 'email', 'cruise', 'notes']
     success_url = reverse_lazy('index')
     success_message = 'Thank you, %(name)s! We will email you when we have more information about %(cruise)s!'
+
+   # Sobrescribir form_valid para enviar el correo
+    def form_valid(self, form):
+        # Obtiene los datos del formulario
+        response = super().form_valid(form)
+        info_request = form.instance
+        
+        # Envía el correo
+        send_mail(
+            subject='Info Request Received',
+            message=f"Hello {info_request.name},\n\nWe have received your request for more information about the cruise '{info_request.cruise}'. We will get back to you soon!\n\nThank you for reaching out!",
+            from_email='your_email@example.com',  # Cambia por tu correo configurado
+            recipient_list=[info_request.email],  # Correo del usuario
+        )
+        
+        return response
